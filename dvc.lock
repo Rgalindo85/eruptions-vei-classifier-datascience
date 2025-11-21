@@ -49,28 +49,28 @@ stages:
       size: 254816
     - path: src/prepare_data.py
       hash: md5
-      md5: c40b434de968da8c1ed25f73b55d21fa
+      md5: 91b2781d9d505708fe4faa22c00609c8
       size: 2033
     outs:
     - path: data/model_input/test.csv
       hash: md5
-      md5: abc2d5506eadd22ab51380f6b31525a3
-      size: 5015927
+      md5: 16b187fcf99b852287811c48c7922c83
+      size: 3347186
     - path: data/model_input/train.csv
       hash: md5
-      md5: b8840abe63caf391cc23ce21ecdb78ab
-      size: 11668215
+      md5: 1f7025eb86795104d106044cf2041e49
+      size: 13336956
   train_model:
     cmd: python src/train_classifier.py
     deps:
     - path: data/model_input/test.csv
       hash: md5
-      md5: abc2d5506eadd22ab51380f6b31525a3
-      size: 5015927
+      md5: 16b187fcf99b852287811c48c7922c83
+      size: 3347186
     - path: data/model_input/train.csv
       hash: md5
-      md5: b8840abe63caf391cc23ce21ecdb78ab
-      size: 11668215
+      md5: 1f7025eb86795104d106044cf2041e49
+      size: 13336956
     - path: src/train_classifier.py
       hash: md5
       md5: a18a5a4560bb11dd6f3442a1401e85d8
@@ -78,5 +78,5 @@ stages:
     outs:
     - path: models/model.joblib
       hash: md5
-      md5: 0d877f9279cc399c3302056ae923c772
-      size: 94011730
+      md5: 1c9b0f6c427657fc4a4d49f08ebde027
+      size: 104697042

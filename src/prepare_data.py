@@ -24,7 +24,7 @@ def save_data(df, filename):
 
     df.to_csv(os.path.join(filepath, filename), index=False)
 
-def split_data(df, train_frac=0.7):
+def split_data(df, train_frac=0.8):
     # shuffling the data
     df = df.sample(frac=1, random_state=42).reset_index(drop=True)
 

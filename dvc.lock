@@ -61,7 +61,7 @@ stages:
       md5: 1f7025eb86795104d106044cf2041e49
       size: 13336956
   train_model:
-    cmd: python src/train_classifier.py
+    cmd: python src/train_clf_mlflow.py
     deps:
     - path: data/model_input/test.csv
       hash: md5
@@ -71,12 +71,7 @@ stages:
       hash: md5
       md5: 1f7025eb86795104d106044cf2041e49
       size: 13336956
-    - path: src/train_classifier.py
+    - path: src/train_clf_mlflow.py
       hash: md5
-      md5: a18a5a4560bb11dd6f3442a1401e85d8
-      size: 3349
-    outs:
-    - path: models/model.joblib
-      hash: md5
-      md5: 1c9b0f6c427657fc4a4d49f08ebde027
-      size: 104697042
+      md5: 3257d322d1ecbaf1b1f4cf6dfab291ef
+      size: 5660

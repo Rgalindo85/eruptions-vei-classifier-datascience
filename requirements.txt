@@ -4,7 +4,8 @@ pandas==2.3.3
 # mlops
 joblib==1.5.2
 scikit-learn==1.7.2
-dvc==3.64.2
+dvc==3.64.0
+mlflow
 
 # visualization
 matplotlib==3.10.7

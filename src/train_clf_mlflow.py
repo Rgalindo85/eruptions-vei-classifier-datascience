@@ -27,7 +27,7 @@ mlflow.set_experiment(EXPERIMENT_NAME)
 # ---------------------
 
 # Define Hyperparameters to be tracked
-N_ESTIMATORS = 20
+N_ESTIMATORS = 100
 RANDOM_STATE = 42
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
@@ -37,7 +37,8 @@ def main():
     print("****** Starting classifier training ******")
 
     # --- MLflow Run Start: All subsequent logs are associated with this run ---
-    run_name = "RandomForest_VEI_Classifier"
+    run_name = f"RandomForest_{N_ESTIMATORS}_estimators_rs{RANDOM_STATE}"
+    # run_name = None
     with mlflow.start_run(run_name=run_name) as run:
         
         # Log key parameters before running the training
@@ -145,12 +146,12 @@ def prepare_data(df):
         'latitude_x',
         'longitude_x',
         'elevation',
-        'start_year',
+        # 'start_year',
     ]
     cat = [
         'eruption_category',
-        'event_type',
-        'major_rock_1',
+        # 'event_type',
+        # 'major_rock_1',
     ]
     df_class = pd.get_dummies(df[features + cat], drop_first=True)
     X = df_class

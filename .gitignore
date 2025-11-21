@@ -5,3 +5,6 @@
 #pycache
 __pycache__/
 
+# mlflow runs
+mlruns/
+

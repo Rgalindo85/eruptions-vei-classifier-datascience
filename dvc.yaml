@@ -23,11 +23,12 @@ stages:
       - data/model_input/test.csv
   
   train_model:
-    cmd: python src/train_classifier.py
+    # cmd: python src/train_classifier.py
+    cmd: python src/train_clf_mlflow.py
     deps:
-      - src/train_classifier.py
+      - src/train_clf_mlflow.py
       - data/model_input/train.csv
       - data/model_input/test.csv
-    outs:
-      - models/model.joblib
+    # outs:
+      # - models/model.joblib
 

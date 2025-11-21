@@ -93,9 +93,9 @@ def prepare_data(df):
         'eruption_category',
         'event_type',
         'primary_volcano_type',
-        'evidence_category',
-        'tectonic_settings',
-        'major_rock_1',
+        # 'evidence_category',
+        # 'tectonic_settings',
+        # 'major_rock_1',
     ]
 
     df_class = pd.get_dummies(df[features + cat], drop_first=True)

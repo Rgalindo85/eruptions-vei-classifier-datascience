@@ -73,10 +73,10 @@ stages:
       size: 11668215
     - path: src/train_classifier.py
       hash: md5
-      md5: 1e337f1a100a42110f1a8e786bd92bbc
-      size: 3343
+      md5: a18a5a4560bb11dd6f3442a1401e85d8
+      size: 3349
     outs:
     - path: models/model.joblib
       hash: md5
-      md5: f53156c3feaa27eb57c34da2febe7401
-      size: 95058754
+      md5: 0d877f9279cc399c3302056ae923c772
+      size: 94011730

@@ -1,10 +1,11 @@
 # data
-pandas
+pandas==2.3.3
 
 # mlops
-joblib
-scikit-learn
+joblib==1.5.2
+scikit-learn==1.7.2
+dvc==3.64.2
 
 # visualization
-matplotlib
-seaborn
+matplotlib==3.10.7
+seaborn==0.13.2

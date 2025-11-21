@@ -32,7 +32,8 @@ def limpiar_datos(table_name):
     df = imputar_valores_faltantes(df)
 
     # guardar datos limpios
-    output_path = os.path.join(PROJECT_DIR, "data", "clean", f"{table_name}")
+    dir_path = os.makedirs(os.path.join(PROJECT_DIR, "data", "clean"), exist_ok=True)
+    output_path = os.path.join(PROJECT_DIR, "data", "clean", table_name)
     df.to_csv(output_path, index=False)
 
 def reemplazar_valores(df, to_replace, value):

@@ -1,0 +1,82 @@
+schema: '2.0'
+stages:
+  clean:
+    cmd: python src/data_clean.py
+    deps:
+    - path: data/raw/archive/eruptions.csv
+      hash: md5
+      md5: 91ab2ad98dec31b22e7201d17a844511
+      size: 1212609
+    - path: data/raw/archive/events.csv
+      hash: md5
+      md5: c6c5773a422ad271af34041f91be4606
+      size: 2646291
+    - path: data/raw/archive/volcano.csv
+      hash: md5
+      md5: 5cff10416b9f922a2be6afaed2602292
+      size: 254788
+    - path: src/data_clean.py
+      hash: md5
+      md5: a894a9573e85ae86c73c189eb18f2b84
+      size: 2959
+    outs:
+    - path: data/clean/eruptions.csv
+      hash: md5
+      md5: 8a35101a386097ce4ba16fe56b7df001
+      size: 1157810
+    - path: data/clean/events.csv
+      hash: md5
+      md5: c23427877e5b503d530ba16bebda30bc
+      size: 2073672
+    - path: data/clean/volcano.csv
+      hash: md5
+      md5: b3109a7386957afe91a67a304960a946
+      size: 254816
+  prepare_data:
+    cmd: python src/prepare_data.py
+    deps:
+    - path: data/clean/eruptions.csv
+      hash: md5
+      md5: 8a35101a386097ce4ba16fe56b7df001
+      size: 1157810
+    - path: data/clean/events.csv
+      hash: md5
+      md5: c23427877e5b503d530ba16bebda30bc
+      size: 2073672
+    - path: data/clean/volcano.csv
+      hash: md5
+      md5: b3109a7386957afe91a67a304960a946
+      size: 254816
+    - path: src/prepare_data.py
+      hash: md5
+      md5: c40b434de968da8c1ed25f73b55d21fa
+      size: 2033
+    outs:
+    - path: data/model_input/test.csv
+      hash: md5
+      md5: abc2d5506eadd22ab51380f6b31525a3
+      size: 5015927
+    - path: data/model_input/train.csv
+      hash: md5
+      md5: b8840abe63caf391cc23ce21ecdb78ab
+      size: 11668215
+  train_model:
+    cmd: python src/train_classifier.py
+    deps:
+    - path: data/model_input/test.csv
+      hash: md5
+      md5: abc2d5506eadd22ab51380f6b31525a3
+      size: 5015927
+    - path: data/model_input/train.csv
+      hash: md5
+      md5: b8840abe63caf391cc23ce21ecdb78ab
+      size: 11668215
+    - path: src/train_classifier.py
+      hash: md5
+      md5: 1e337f1a100a42110f1a8e786bd92bbc
+      size: 3343
+    outs:
+    - path: models/model.joblib
+      hash: md5
+      md5: f53156c3feaa27eb57c34da2febe7401
+      size: 95058754

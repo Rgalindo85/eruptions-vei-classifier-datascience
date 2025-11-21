@@ -1,3 +1,33 @@
 stages:
   clean:
     cmd: python src/data_clean.py
+    deps:
+      - src/data_clean.py
+      - data/raw/archive/eruptions.csv
+      - data/raw/archive/volcano.csv
+      - data/raw/archive/events.csv
+    outs:
+      - data/clean/eruptions.csv
+      - data/clean/volcano.csv
+      - data/clean/events.csv
+  
+  prepare_data:
+    cmd: python src/prepare_data.py
+    deps:
+      - src/prepare_data.py
+      - data/clean/eruptions.csv
+      - data/clean/volcano.csv
+      - data/clean/events.csv
+    outs:
+      - data/model_input/train.csv
+      - data/model_input/test.csv
+  
+  train_model:
+    cmd: python src/train_classifier.py
+    deps:
+      - src/train_classifier.py
+      - data/model_input/train.csv
+      - data/model_input/test.csv
+    outs:
+      - models/model.joblib
+

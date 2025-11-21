@@ -1,1 +1,7 @@
 *.csv
+*.png
+*.joblib
+
+#pycache
+__pycache__/
+

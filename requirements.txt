@@ -1,2 +1,10 @@
 # data
 pandas
+
+# mlops
+joblib
+scikit-learn
+
+# visualization
+matplotlib
+seaborn

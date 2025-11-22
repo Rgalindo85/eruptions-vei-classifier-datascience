@@ -15,6 +15,9 @@ RUN git init && \
     git add . && \
     git commit -m "Initial commit inside Docker"
 
+ENV PIP_DEFAULT_TIMEOUT=200
+ENV PIP_RETRIES=10
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 RUN dvc init -f
